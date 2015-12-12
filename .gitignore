@@ -1,2 +1,8 @@
 *.so
-*/pycache/
+*.pcd
+*/__pycache__/
+bin/
+data/
+lib/
+src/KinectWrapper.py
+src/PointCloudWrapper.py
