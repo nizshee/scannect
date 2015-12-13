@@ -19,3 +19,5 @@ for angle in range(start, stop, step):
 # concat = concat.static(mean=200, dev=0.5)
 # concat = concat.voxel(leaf_x=15, leaf_y=15, leaf_z=15)
 concat.write("../data/processed/aaa.pcd")
+
+# pc.static(mean=10, dev=5).voxel(leaf_x=7, leaf_y=7, leaf_z=7).write("tmp1.pcd")

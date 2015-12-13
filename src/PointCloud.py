@@ -39,7 +39,7 @@ class PointCloud:
         tmp = self.pc.ndt(iterations, step, resol, trans, source.pc)
         return PointCloud(tmp)
 
-    def write_normal(self, filename, radius=1):
+    def write_normal(self, filename, radius=10):
         self.pc.normal(filename, radius)
 
     def read(self, filename):

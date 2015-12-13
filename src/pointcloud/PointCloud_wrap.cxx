@@ -3589,7 +3589,7 @@ SWIGINTERN PyObject *_wrap_PointCloud_concat(PyObject *SWIGUNUSEDPARM(self), PyO
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  PointCloud *result = 0 ;
+  PointCloud result;
   
   if (!PyArg_ParseTuple(args,(char *)"OO:PointCloud_concat",&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PointCloud, 0 |  0 );
@@ -3605,8 +3605,8 @@ SWIGINTERN PyObject *_wrap_PointCloud_concat(PyObject *SWIGUNUSEDPARM(self), PyO
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PointCloud_concat" "', argument " "2"" of type '" "PointCloud &""'"); 
   }
   arg2 = reinterpret_cast< PointCloud * >(argp2);
-  result = (PointCloud *) &(arg1)->concat(*arg2);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PointCloud, 0 |  0 );
+  result = (arg1)->concat(*arg2);
+  resultobj = SWIG_NewPointerObj((new PointCloud(static_cast< const PointCloud& >(result))), SWIGTYPE_p_PointCloud, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -3628,7 +3628,7 @@ SWIGINTERN PyObject *_wrap_PointCloud_normal(PyObject *SWIGUNUSEDPARM(self), PyO
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
-  PointCloud *result = 0 ;
+  PointCloud result;
   
   if (!PyArg_ParseTuple(args,(char *)"OOO:PointCloud_normal",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PointCloud, 0 |  0 );
@@ -3646,8 +3646,8 @@ SWIGINTERN PyObject *_wrap_PointCloud_normal(PyObject *SWIGUNUSEDPARM(self), PyO
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "PointCloud_normal" "', argument " "3"" of type '" "double""'");
   } 
   arg3 = static_cast< double >(val3);
-  result = (PointCloud *) &(arg1)->normal(arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PointCloud, 0 |  0 );
+  result = (arg1)->normal(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new PointCloud(static_cast< const PointCloud& >(result))), SWIGTYPE_p_PointCloud, SWIG_POINTER_OWN |  0 );
   if (alloc2 == SWIG_NEWOBJ) delete[] buf2;
   return resultobj;
 fail:
@@ -3670,7 +3670,7 @@ SWIGINTERN PyObject *_wrap_PointCloud_statistical_outlier_removal(PyObject *SWIG
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
-  PointCloud *result = 0 ;
+  PointCloud result;
   
   if (!PyArg_ParseTuple(args,(char *)"OOO:PointCloud_statistical_outlier_removal",&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PointCloud, 0 |  0 );
@@ -3688,8 +3688,8 @@ SWIGINTERN PyObject *_wrap_PointCloud_statistical_outlier_removal(PyObject *SWIG
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "PointCloud_statistical_outlier_removal" "', argument " "3"" of type '" "double""'");
   } 
   arg3 = static_cast< double >(val3);
-  result = (PointCloud *) &(arg1)->statistical_outlier_removal(arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PointCloud, 0 |  0 );
+  result = (arg1)->statistical_outlier_removal(arg2,arg3);
+  resultobj = SWIG_NewPointerObj((new PointCloud(static_cast< const PointCloud& >(result))), SWIGTYPE_p_PointCloud, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -3714,7 +3714,7 @@ SWIGINTERN PyObject *_wrap_PointCloud_approximate_voxel_grid(PyObject *SWIGUNUSE
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
-  PointCloud *result = 0 ;
+  PointCloud result;
   
   if (!PyArg_ParseTuple(args,(char *)"OOOO:PointCloud_approximate_voxel_grid",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PointCloud, 0 |  0 );
@@ -3737,8 +3737,8 @@ SWIGINTERN PyObject *_wrap_PointCloud_approximate_voxel_grid(PyObject *SWIGUNUSE
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "PointCloud_approximate_voxel_grid" "', argument " "4"" of type '" "double""'");
   } 
   arg4 = static_cast< double >(val4);
-  result = (PointCloud *) &(arg1)->approximate_voxel_grid(arg2,arg3,arg4);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PointCloud, 0 |  0 );
+  result = (arg1)->approximate_voxel_grid(arg2,arg3,arg4);
+  resultobj = SWIG_NewPointerObj((new PointCloud(static_cast< const PointCloud& >(result))), SWIGTYPE_p_PointCloud, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -3771,7 +3771,7 @@ SWIGINTERN PyObject *_wrap_PointCloud_icp(PyObject *SWIGUNUSEDPARM(self), PyObje
   PyObject * obj3 = 0 ;
   PyObject * obj4 = 0 ;
   PyObject * obj5 = 0 ;
-  PointCloud *result = 0 ;
+  PointCloud result;
   
   if (!PyArg_ParseTuple(args,(char *)"OOOOOO:PointCloud_icp",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PointCloud, 0 |  0 );
@@ -3807,8 +3807,8 @@ SWIGINTERN PyObject *_wrap_PointCloud_icp(PyObject *SWIGUNUSEDPARM(self), PyObje
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PointCloud_icp" "', argument " "6"" of type '" "PointCloud &""'"); 
   }
   arg6 = reinterpret_cast< PointCloud * >(argp6);
-  result = (PointCloud *) &(arg1)->icp(arg2,arg3,arg4,arg5,*arg6);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PointCloud, 0 |  0 );
+  result = (arg1)->icp(arg2,arg3,arg4,arg5,*arg6);
+  resultobj = SWIG_NewPointerObj((new PointCloud(static_cast< const PointCloud& >(result))), SWIGTYPE_p_PointCloud, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -3841,7 +3841,7 @@ SWIGINTERN PyObject *_wrap_PointCloud_ndt(PyObject *SWIGUNUSEDPARM(self), PyObje
   PyObject * obj3 = 0 ;
   PyObject * obj4 = 0 ;
   PyObject * obj5 = 0 ;
-  PointCloud *result = 0 ;
+  PointCloud result;
   
   if (!PyArg_ParseTuple(args,(char *)"OOOOOO:PointCloud_ndt",&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PointCloud, 0 |  0 );
@@ -3877,8 +3877,8 @@ SWIGINTERN PyObject *_wrap_PointCloud_ndt(PyObject *SWIGUNUSEDPARM(self), PyObje
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PointCloud_ndt" "', argument " "6"" of type '" "PointCloud &""'"); 
   }
   arg6 = reinterpret_cast< PointCloud * >(argp6);
-  result = (PointCloud *) &(arg1)->ndt(arg2,arg3,arg4,arg5,*arg6);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PointCloud, 0 |  0 );
+  result = (arg1)->ndt(arg2,arg3,arg4,arg5,*arg6);
+  resultobj = SWIG_NewPointerObj((new PointCloud(static_cast< const PointCloud& >(result))), SWIGTYPE_p_PointCloud, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;

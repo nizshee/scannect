@@ -19,17 +19,16 @@ void PointCloud::add_point(double x, double y, double z) {
     point_cloud->push_back(o);
 }
 
-PointCloud& PointCloud::concat(PointCloud& x) {
-    PointCloud* pc = new PointCloud();
+PointCloud PointCloud::concat(PointCloud& x) {
+    PointCloud pc;
     for (int i = 0; i < point_cloud->size(); ++i)
-        pc->point_cloud->push_back(point_cloud->at(i));
+        pc.point_cloud->push_back(point_cloud->at(i));
     for (int i = 0; i < x.point_cloud->size(); ++i)
-        pc->point_cloud->push_back(x.point_cloud->at(i));
-    return *pc;
+        pc.point_cloud->push_back(x.point_cloud->at(i));
+    return pc;
 } 
 
-PointCloud& PointCloud::normal(char* name, double rad) {
-    PointCloud* pc = new PointCloud();
+PointCloud PointCloud::normal(char* name, double rad) {
     pcl::search::KdTree<pcl::PointXYZ>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZ>);
     pcl::PointCloud<pcl::PointNormal> mls_points;
     pcl::MovingLeastSquares<pcl::PointXYZ, pcl::PointNormal> mls;
@@ -43,6 +42,7 @@ PointCloud& PointCloud::normal(char* name, double rad) {
     // Reconstruct
     mls.process (mls_points);
     pcl::io::savePCDFile (name, mls_points);
+    return *this;
 }
 
 double PointCloud::get_x(unsigned int num) {
@@ -61,28 +61,28 @@ unsigned int PointCloud::get_size() {
     return point_cloud->size();
 }
 
-PointCloud& PointCloud::statistical_outlier_removal(int mean, double dev) {
+PointCloud PointCloud::statistical_outlier_removal(int mean, double dev) {
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
     pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
     sor.setInputCloud (point_cloud);
     sor.setMeanK (mean);
     sor.setStddevMulThresh (dev);
     sor.filter (*cloud_filtered);
-    PointCloud* pc = new PointCloud(cloud_filtered);
-    return *pc;
+    PointCloud pc(cloud_filtered);
+    return pc;
 }
 
-PointCloud& PointCloud::approximate_voxel_grid(double x, double y , double z) {
+PointCloud PointCloud::approximate_voxel_grid(double x, double y , double z) {
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
     pcl::ApproximateVoxelGrid<pcl::PointXYZ> voxel_filter;
     voxel_filter.setLeafSize (x, y, z);
     voxel_filter.setInputCloud (point_cloud);
     voxel_filter.filter (*cloud_filtered);
-    PointCloud* pc = new PointCloud(cloud_filtered);
-    return *pc;   
+    PointCloud pc(cloud_filtered);
+    return pc;   
 }
 
-PointCloud& PointCloud::icp(int i, double d1, double d2, double d3, PointCloud& source) {
+PointCloud PointCloud::icp(int i, double d1, double d2, double d3, PointCloud& source) {
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_result (new pcl::PointCloud<pcl::PointXYZ>);
     pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> registration;
     registration.setInputSource(source.point_cloud);
@@ -96,11 +96,11 @@ PointCloud& PointCloud::icp(int i, double d1, double d2, double d3, PointCloud& 
     if(registration.hasConverged()) std::cout << "success" << std::endl;
     else std::cout << "fail" << std::endl;
     
-    PointCloud* pc = new PointCloud(cloud_result);
-    return *pc;
+    PointCloud pc(cloud_result);
+    return pc;
 }
 
-PointCloud& PointCloud::ndt(int i, double d1, double d2, double d3, PointCloud& source) {
+PointCloud PointCloud::ndt(int i, double d1, double d2, double d3, PointCloud& source) {
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_source (new pcl::PointCloud<pcl::PointXYZ>);
     pcl::transformPointCloud (*(source.point_cloud), *cloud_source, init);
 
@@ -117,9 +117,9 @@ PointCloud& PointCloud::ndt(int i, double d1, double d2, double d3, PointCloud& 
     if(registration.hasConverged()) std::cout << "success" << std::endl;
     else std::cout << "fail" << std::endl;
 
-    PointCloud* pc = new PointCloud(cloud_result);
-    pc->init = registration.getFinalTransformation() * init;
-    return *pc;   
+    PointCloud pc(cloud_result);
+    pc.init = registration.getFinalTransformation() * init;
+    return pc;   
 }
 
 void PointCloud::read_from_file(char* filename) {

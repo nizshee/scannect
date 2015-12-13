@@ -2,9 +2,9 @@
 
 from PointCloud import PointCloud
 
-start = 00
+start = 0
 stop = 360
-step = 2
+step = 10
 
 pc_curr = PointCloud.read_file("../data/box{:03d}.pcd".format(start))
 pc_curr = pc_curr.static(mean=50, dev=1e-1)
