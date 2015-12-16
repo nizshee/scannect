@@ -4,7 +4,7 @@ from PointCloud import PointCloud
 
 start = 0
 stop = 360
-step = 20
+step = 40
 
 
 # pc_next = PointCloud.read_file("../data/box005.pcd")
@@ -20,4 +20,4 @@ for angle in range(start, stop, step):
 # concat = concat.voxel(leaf_x=15, leaf_y=15, leaf_z=15)
 concat.write("../data/processed/aaa.pcd")
 
-# pc.static(mean=10, dev=5).voxel(leaf_x=7, leaf_y=7, leaf_z=7).write("tmp1.pcd")
+concat.static(mean=30, dev=3).voxel(leaf_x=7, leaf_y=7, leaf_z=7).write_normal("../data/processed/aa.pcd")

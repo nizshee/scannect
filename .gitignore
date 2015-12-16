@@ -6,3 +6,5 @@ data/
 lib/
 src/KinectWrapper.py
 src/PointCloudWrapper.py
+presentation/presentation.*
+!presentation/presentation.tex
