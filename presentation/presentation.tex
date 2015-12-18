@@ -14,6 +14,8 @@
 
 \usepackage{multicol}
 \usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{color}
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -25,7 +27,7 @@
 %   TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[Выпускная работа бакалавра]{3D-Scanner with Kinect/LeapMotion}
+\title[Практика]{3D-Scanner with Kinect/LeapMotion}
 
 \author{Васильев Роман}
 \institute[СПбАУ]
@@ -99,6 +101,8 @@
         \item Все интерфейсы были обернуты в классы Python при помощи SWIG для удобства работы.
         \item Чуть-чуть кода для Arduino на C.
     \end{itemize}
+
+    Весь код находится в репозитории \href{https://github.com/nizshee/scannect}{\color{blue}https://github.com/nizshee/scannect}
 \end{frame}
 
 
@@ -165,29 +169,34 @@
             После этого полученные облака точек накладываются друг на друга (при помощи ndt) и сливаются в одно большое скопление точек.
             \item
             Оно сглаживается и фильтруется.
-            % \item
             \end{itemize}
-
-
-
 
         \end{column}
     \end{columns}
 \end{frame}
 
 
+\section{Пример}
 
 \begin{frame}{Пример}
     \begin{columns}[T]
-        \begin{column}[T]{5cm}
-            \includegraphics[scale=0.04]{sheep}\\
-            Неплохо получилось оцифровать козлика.
+        \begin{column}[T]{7cm}
+            \includegraphics[scale=0.06]{sheep}\\
         \end{column}
         \begin{column}[T]{5cm}
-            \includegraphics[scale=0.1]{sheep1}\\
-            \includegraphics[scale=0.1]{sheep2}
+            Попытка оцифровать козлика.
+
+            Стоит учесть, что козлик был достаточно большим и имел сложную форму. 
+
+            Поэтому некоторые участки содержат больше точек, некоторые меньше.
         \end{column}
     \end{columns}
+\end{frame}
+
+
+\begin{frame}{Пример}
+    \includegraphics[scale=0.45]{snapshot02a}
+    \includegraphics[scale=0.45]{snapshot04a}
 \end{frame}
 
 
